@@ -4,12 +4,12 @@ services:
   visualizer:
     image: alexellis2/visualizer-arm:latest
     ports:
-      - "80:8080"
+      - "80:8080/tcp"
     volumes:
       - type: bind
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
+        source: "/var/run/docker.sock"
+        target: "/var/run/docker.sock"
     deploy:
       placement:
         constraints:
-          - node.role == manager
+          - node.role==manager
