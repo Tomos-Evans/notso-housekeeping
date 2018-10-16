@@ -1,13 +1,9 @@
 version: "3.1"
 
 services:
-  visualizer:
-    image: alexellis2/visualizer-arm:latest
+  test:
+    image: httpd
+  proxy:
+    image: tomosevans/notso-network-nginx
     ports:
-      - "80:8080/tcp"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    deploy:
-      placement:
-        constraints:
-          - node.role==manager
+      - "80:80"
